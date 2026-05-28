@@ -9,7 +9,7 @@ This project analyzes the impact of the AI boom on major technology stocks:
 - AMD (AMD)
 - NASDAQ Composite (^IXIC)
 
-The objective is to clean financial market data, perform exploratory visualization, and derive insights from stock performance trends.
+The objective is to clean financial market data, perform exploratory visualization, and derive insights from stock performance trends. The repository also includes a predictive modeling workflow that uses the cleaned data to compare three classifiers on the same feature set.
 
 ## Dataset
 
@@ -26,6 +26,13 @@ Period: 2018-2026
 - Data visualization
 - Dashboard creation
 
+## Task 2 Objectives
+
+- Build a predictive modeling dataset from the cleaned market data
+- Engineer lagged and rolling features for time-series style modeling
+- Compare Logistic Regression, Decision Tree, and Random Forest models
+- Export model comparison metrics and feature importance results
+
 ## Tools Used
 
 - Python
@@ -34,15 +41,21 @@ Period: 2018-2026
 - Matplotlib
 - Seaborn
 - yfinance
+- scikit-learn
 
 ## Visualizations
 
 See the `reports/data_cleaning_visualization/figures` folder for generated PNGs (01_close_price_trend.png, 02_normalized_close.png, ...).
 
+Predictive modeling outputs are saved in `reports/predictive_modeling/`:
+
+- `model_comparison_results.csv`
+- `feature_importance.csv`
+
 ## Repository Structure
 
 - data/: raw and cleaned CSVs
-- notebooks/: analysis notebooks (DataCleaning&Visualization.ipynb)
+- notebooks/: analysis notebooks (`DataCleaning&Visualization.ipynb`, `PredictiveModeling.ipynb`)
 - reports/: generated figures and CSV summaries
 - models/: (currently empty)
 
@@ -61,12 +74,15 @@ source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
-3. Open the notebook `notebooks/DataCleaning&Visualization.ipynb` and run the cells (or execute as a script after adapting paths).
+3. Open `notebooks/DataCleaning&Visualization.ipynb` to reproduce the cleaning and visualization workflow.
+
+4. Open `notebooks/PredictiveModeling.ipynb` to reproduce the modeling workflow and regenerate the results in `reports/predictive_modeling/`.
 
 ## Notes
 
 - The raw data downloaded via `yfinance` is stored in `data/ai_stocks_raw.csv`.
 - Cleaned dataset and summary CSVs are saved under `reports/data_cleaning_visualization/` and `data/cleaned_ai_stocks_task1.csv`.
+- Predictive modeling metrics and feature rankings are saved under `reports/predictive_modeling/`.
 
 ## Author
 
